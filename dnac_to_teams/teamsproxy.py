@@ -52,10 +52,3 @@ class TeamsProxy:
         if r.ok:
             return True
         raise Exception("Could not send message to MS Teams")
-
-
-if __name__ == "__main__":
-    with open("../events/event_plain.json", "r") as fo:
-        url = "https://spie.webhook.office.com/webhookb2/5bd8e598-5719-44be-96f0-a8e17f76d638@187d8bc4-c3be-4e6b-b13b-730ed2bbb8bc/IncomingWebhook/759939512a5c4739bd408df70d885f27/0821ce3a-6d0f-44a2-8923-8803809793cc"
-        tp = TeamsProxy(json.load(fo))
-        tp.send2teams(url)
