@@ -89,7 +89,7 @@ Deploy the app using docker or in a Python3 virtual environment
 3. Install dependencies:
     ```bash
     pip install pip --upgrade
-    pip install -r requirements.txt
+    pip install -r dnac_to_teams/requirements.txt
     ```
 4. Configure the webhook URL and the authentication token as environment variables:
     ```bash
