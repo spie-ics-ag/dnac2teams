@@ -1,0 +1,67 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  dnac2teams
+
+  Simple webhook receiver, forwarding DNAC notifications to MS teams
+
+Globals:
+  Function:
+    Timeout: 15
+    MemorySize: 128
+    Environment:
+        Variables:
+          TEAMS_URL: https://company.webhook.office.com/webhookb2/webhookid
+          AUTH_TOKEN: yoursupersecrettoken
+
+Resources:
+  DnacToTeamsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: dnac_to_teams/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Architectures:
+        - x86_64
+      Events:
+        DnacToTeams:
+          Type: Api
+          Properties:
+            Path: /dnac2teams
+            Method: post
+            RestApiId:
+              Ref: DnacToTeamsApi
+  
+  DnacToTeamsApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: prod
+      Auth:
+        DefaultAuthorizer: LambdaAuthorizer
+        Authorizers:
+          LambdaAuthorizer:
+            FunctionPayloadType: REQUEST
+            FunctionArn: !GetAtt LambdaAuthorizerFunction.Arn
+            Identity: 
+              Headers:
+                - Authorization
+
+  LambdaAuthorizerFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: lambda_authorizer/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Architectures:
+        - x86_64
+
+Outputs:
+  DnacToTeamsApi:
+    Description: "Webhook endpoint URL to be used in DNAC (with Token Auth)"
+    Value: !Sub "https://${DnacToTeamsApi}.execute-api.${AWS::Region}.amazonaws.com/prod/dnac2teams"
+  # DnacToTeamsFunction:
+  #   Description: "DnacToTeams Lambda Function ARN"
+  #   Value: !GetAtt DnacToTeamsFunction.Arn
+  # DnacToTeamsIamRole:
+  #   Description: "Implicit IAM Role created for DnacToTeams function"
+  #   Value: !GetAtt DnacToTeamsFunctionRole.Arn

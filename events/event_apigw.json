@@ -1,0 +1,69 @@
+{
+  "version": "2.0",
+  "routeKey": "$default",
+  "rawPath": "/path/to/resource",
+  "rawQueryString": "parameter1=value1&parameter1=value2&parameter2=value",
+  "cookies": [
+    "cookie1",
+    "cookie2"
+  ],
+  "headers": {
+    "Header1": "value1",
+    "Header2": "value1,value2"
+  },
+  "queryStringParameters": {
+    "parameter1": "value1,value2",
+    "parameter2": "value"
+  },
+  "requestContext": {
+    "accountId": "123456789012",
+    "apiId": "api-id",
+    "authentication": {
+      "clientCert": {
+        "clientCertPem": "CERT_CONTENT",
+        "subjectDN": "www.example.com",
+        "issuerDN": "Example issuer",
+        "serialNumber": "a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1:a1",
+        "validity": {
+          "notBefore": "May 28 12:30:02 2019 GMT",
+          "notAfter": "Aug  5 09:36:04 2021 GMT"
+        }
+      }
+    },
+    "authorizer": {
+      "jwt": {
+        "claims": {
+          "claim1": "value1",
+          "claim2": "value2"
+        },
+        "scopes": [
+          "scope1",
+          "scope2"
+        ]
+      }
+    },
+    "domainName": "id.execute-api.us-east-1.amazonaws.com",
+    "domainPrefix": "id",
+    "http": {
+      "method": "POST",
+      "path": "/path/to/resource",
+      "protocol": "HTTP/1.1",
+      "sourceIp": "192.168.0.1/32",
+      "userAgent": "agent"
+    },
+    "requestId": "id",
+    "routeKey": "$default",
+    "stage": "$default",
+    "time": "12/Mar/2020:19:03:58 +0000",
+    "timeEpoch": 1583348638390
+  },
+  "body": "{\"version\": \"\", \"instanceId\": \"ea6e28c5-b7f2-43a4-9937-def73771c5ef\", \"eventId\": \"NETWORK-NON-FABRIC_WIRED-1-251\", \"namespace\": \"ASSURANCE\", \"name\": \"\", \"description\": \"\", \"type\": \"NETWORK\", \"category\": \"ALERT\", \"domain\": \"Connectivity\", \"subDomain\": \"Non-Fabric Wired\", \"severity\": 1, \"source\": \"ndp\", \"timestamp\": 1574457834497, \"tags\": \"\", \"details\": {\"Type\": \"Network Device\", \"Assurance Issue Priority\": \"P1\", \"Assurance Issue Details\": \"Interface GigabitEthernet1/0/3 on the following network device is down: Local Node: PDX-M\", \"Device\": \"10.93.141.17\", \"Assurance Issue Name\": \"Interface GigabitEthernet1/0/3 is Down on Network Device 10.93.141.17\", \"Assurance Issue Category\": \"Connectivity\", \"Assurance Issue Status\": \"active\"}, \"ciscoDnaEventLink\": \"https://10.93.141.35/dna/assurance/issueDetails?issueId=ea6e28c5-b7f2-43a4-9937-def73771c5ef\"}",
+  "pathParameters": {
+    "parameter1": "value1"
+  },
+  "isBase64Encoded": true,
+  "stageVariables": {
+    "stageVariable1": "value1",
+    "stageVariable2": "value2"
+  }
+}
