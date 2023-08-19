@@ -46,7 +46,7 @@ dnac2teams is using the AWS Serverless Application Model (Lambda+API-Gateway) an
     sam deploy --guided
     ```
 
-Once deployed the public endpoint URL is displayed in the output, use the corresponding URL and the token from point 3 to create the webhook in DNAC.
+Once deployed the public endpoint URL is displayed in the SAM output, use this URL and the token (specified in point 3) to create the webhook in DNAC.
 
 ## On-prem installation options
 For on-prem installations, there is a simple Flask-RESTX based receiver available.
