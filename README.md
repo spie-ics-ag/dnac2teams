@@ -110,7 +110,7 @@ After starting either the Docker container or Python script, the webhook endpoin
 ### Configure Destination Webhook
 Setup the webhook: *DNAC&rarr;System&rarr;Settings&rarr;External Services&rarr;Destinations&rarr;Webhook*
 
-Enter the URL from the SAM output (or the URL pointing to your local instance if your running the on-prem version), use **Token** as the authentication method in DNAC, for the header value use the token specified in the **AUTH_TOKEN** environment variable.
+Enter the URL from the SAM output (or the URL pointing to your local instance if you're running the on-prem version), use **Token** as the authentication method in DNAC, for the header value use the token specified in the **AUTH_TOKEN** environment variable.
 
 ![DNAC Webhook Authentication](doc/dnac_auth.png)
  
