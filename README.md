@@ -8,12 +8,12 @@ DNAC notifications will be displayed as Adaptive Cards in MS Teams:
 
 ## Installation 
 
-##  Prerequisites
+###  Prerequisites
 - Add an incoming webhook to a MS Teams team/space ([howto](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook))
 - If using the preferred AWS/SAM installation method [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html) must be installed
 - For the ASW/SAM and Docker installation methods, Docker must be installed
 
-##  AWS Serverless Application Model (SAM)
+###  AWS Serverless Application Model (SAM)
 dnac2teams is using the AWS Serverless Application Model (Lambda+API-Gateway) and is best installed via SAM CLI.
 
 
@@ -49,7 +49,7 @@ dnac2teams is using the AWS Serverless Application Model (Lambda+API-Gateway) an
 
 Once deployed the public endpoint URL is displayed in the SAM output, use this URL and the token (specified in point 3) to create the webhook in DNAC.
 
-## On-prem installation options
+### On-prem installation options
 For on-prem installations, there is a simple Flask-RESTX based receiver available.
 
 Clone the repo:
@@ -63,7 +63,7 @@ cd dnac2teams
 
 Deploy the app using docker or in a Python3 virtual environment
 
-### Docker
+#### Docker
 1. Edit the `Dockerfile` file - Change the environment variables (line numbers 3/4) for the Teams incoming webhook URL and the authentication token:
     ```Dockerfile
     ENV TEAMS_URL=https://company.webhook.office.com/webhookb2/webhookid
@@ -78,7 +78,7 @@ Deploy the app using docker or in a Python3 virtual environment
     docker run --rm -p 5000:5000 dnac2teams
     ```  
 
-### Python
+#### Python
 1. Create a virtual environment:
     ```bash
     python3 -m venv .venv
@@ -103,7 +103,7 @@ Deploy the app using docker or in a Python3 virtual environment
     python flaskapp.py
     ```  
 
-### On-prem webhook endpoint
+#### On-prem webhook endpoint
 After starting either the Docker container or Python script, the webhook endpoint is available at [http://localhost:5000/prod/dnac2teams](http://localhost:5000/prod/dnac2teams). If you need a public endpoint, use [ngrok](https://ngrok.com/)
 
 ## DNAC Configuration
