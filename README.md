@@ -4,13 +4,14 @@
 dnac2teams is a simple webhook receiver for Cisco DNA Center notifications, forwarding all notifications events to a Microsoft Teams incoming webhook.
 
 DNAC notifications will be displayed as Adaptive Cards in MS Teams:
-![Adaptive Card](teamsac.png)
+![Adaptive Card](doc/teamsac.png)
 
 ## Installation 
 
 ##  Prerequisites
 - Add an incoming webhook to a MS Teams team/space ([howto](https://learn.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook))
 - If using the preferred AWS/SAM installation method [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html) must be installed
+- For the ASW/SAM and Docker installation methods, Docker must be installed
 
 ##  AWS Serverless Application Model (SAM)
 dnac2teams is using the AWS Serverless Application Model (Lambda+API-Gateway) and is best installed via SAM CLI.
@@ -26,7 +27,7 @@ dnac2teams is using the AWS Serverless Application Model (Lambda+API-Gateway) an
 
 1. Clone the repo:
     ```bash
-    git clone https://github.com/maercu/dnac2teams.git
+    git clone https://github.com/spie-ics-ag/dnac2teams.git
     ```
 2. Go to your project folder:
     ```bash
@@ -53,7 +54,7 @@ For on-prem installations, there is a simple Flask-RESTX based receiver availabl
 
 Clone the repo:
 ```bash
- git clone https://github.com/maercu/dnac2teams.git
+ git clone https://github.com/spie-ics-ag/dnac2teams.git
 ```
 Go to your project folder:
 ```bash
@@ -105,7 +106,11 @@ Deploy the app using docker or in a Python3 virtual environment
 ### On-prem webhook endpoint
 After starting either the Docker container or Python script, the webhook endpoint is available at [http://localhost:5000/prod/dnac2teams](http://localhost:5000/prod/dnac2teams). If you need a public endpoint, use [ngrok](https://ngrok.com/)
 
-## Troubleshooting
-### Webhook configuration in DNAC
-The secret-token must be used as a bearer token. In DNAC use *Basic* as the authentication method, this will set the authorization header, as the header value enter *Bearer yourToken* (replace "yourToken" with the value of the AUTH-TOKEN variable). 
+## DNAC Configuration
+### Configure Destination Webhook
+Setup the webhook: *DNAC&rarr;System&rarr;Settings&rarr;External Services&rarr;Destinations&rarr;Webhook*
+
+Enter the URL from the SAM output (or the URL pointing to your local instance if your running the on-prem version), use **Token** as the authentication method in DNAC, for the header value use the token specified in the **AUTH_TOKEN** environment variable.
+
+![DNAC Webhook Authentication](doc/dnac_auth.png)
  

@@ -3,14 +3,14 @@ import os
 
 def lambda_handler(event, context):
     method_arn = event['methodArn']
-    token = event['headers']['Authorization']
+    xauthtoken = event['headers']['X-Auth-Token']
     principal_id = 'user'
 
-    bearer_token = f"Bearer {os.getenv('AUTH_TOKEN')}"
+    apitoken = os.getenv("AUTH_TOKEN")
     # print(token)
     # print(bearer_token)
     
-    if token == bearer_token:  
+    if apitoken == xauthtoken:  
         policy_document = {
             'principalId': principal_id,
             'policyDocument': {

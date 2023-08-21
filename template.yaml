@@ -44,7 +44,7 @@ Resources:
             FunctionArn: !GetAtt LambdaAuthorizerFunction.Arn
             Identity: 
               Headers:
-                - Authorization
+                - X-Auth-Token
 
   LambdaAuthorizerFunction:
     Type: AWS::Serverless::Function

@@ -7,8 +7,8 @@ def lambda_handler(event, context):
     payload = json.loads(event.get("body"))
     tp = TeamsProxy(payload)
     
-    msg = "ok"
-    sc = 200
+    msg = "Successfully forwarded to teams"
+    sc = 202
 
     result = tp.send2teams(url)
 
@@ -18,8 +18,5 @@ def lambda_handler(event, context):
 
     return {
         "statusCode": sc,
-        "body": json.dumps({"message": msg}),
-        "headers": {
-            "Content-Type": "application/json"
-        }
+        "body": msg
     }
