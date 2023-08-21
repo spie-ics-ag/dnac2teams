@@ -106,6 +106,6 @@ Deploy the app using docker or in a Python3 virtual environment
 After starting either the Docker container or Python script, the webhook endpoint is available at [http://localhost:5000/prod/dnac2teams](http://localhost:5000/prod/dnac2teams). If you need a public endpoint, use [ngrok](https://ngrok.com/)
 
 ## Troubleshooting
-# Webhook configuration in DNAC
-The secret-token must be used as a bearer token. In DNAC use *Basic* as the authentication method, this will set the autorization header, as the header value enter *Bearer <yourToken>* (replace "<yourToken>" with the value of the AUTH-TOKEN variable). 
+### Webhook configuration in DNAC
+The secret-token must be used as a bearer token. In DNAC use *Basic* as the authentication method, this will set the autorization header, as the header value enter *Bearer yourToken* (replace "yourToken" with the value of the AUTH-TOKEN variable). 
  
