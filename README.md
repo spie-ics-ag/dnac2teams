@@ -107,5 +107,5 @@ After starting either the Docker container or Python script, the webhook endpoin
 
 ## Troubleshooting
 ### Webhook configuration in DNAC
-The secret-token must be used as a bearer token. In DNAC use *Basic* as the authentication method, this will set the autorization header, as the header value enter *Bearer yourToken* (replace "yourToken" with the value of the AUTH-TOKEN variable). 
+The secret-token must be used as a bearer token. In DNAC use *Basic* as the authentication method, this will set the authorization header, as the header value enter *Bearer yourToken* (replace "yourToken" with the value of the AUTH-TOKEN variable). 
  
