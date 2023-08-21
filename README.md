@@ -113,4 +113,11 @@ Setup the webhook: *DNAC&rarr;System&rarr;Settings&rarr;External Services&rarr;D
 Enter the URL from the SAM output (or the URL pointing to your local instance if you're running the on-prem version), use **Token** as the authentication method in DNAC, for the header value use the token specified in the **AUTH_TOKEN** environment variable.
 
 ![DNAC Webhook Authentication](doc/dnac_auth.png)
- 
+
+## Sandboxes
+You may test this script using the following DevNet sandboxes:
+
+- [Cisco DNA Center Lab 1](https://devnetsandbox.cisco.com/RM/Diagram/Index/b8d7aa34-aa8f-4bf2-9c42-302aaa2daafb?diagramType=Topology)
+- [Cisco DNA Center Lab 2](https://devnetsandbox.cisco.com/RM/Diagram/Index/1d94a25e-51bb-48eb-a9c7-dd8eac577953?diagramType=Topology)
+- [Cisco DNA Center Lab 3](https://devnetsandbox.cisco.com/RM/Diagram/Index/07f8c79c-a484-4260-a286-9cc5a7fff765?diagramType=Topology)
+- [Cisco DNA Center Lab 4](https://devnetsandbox.cisco.com/RM/Diagram/Index/59be6652-e919-4a7d-91ad-f7465de22bcd?diagramType=Topology)
