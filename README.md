@@ -37,7 +37,7 @@ dnac2teams is using the AWS Serverless Application Model (Lambda+API-Gateway) an
     TEAMS_URL: https://company.webhook.office.com/webhookb2/webhookid
     AUTH_TOKEN: yoursupersecrettoken
     ```
-4. Optional - Build the SAM app (only for local testing)
+4. Build the SAM app
     ```bash
     sam build --use-container
     ```
